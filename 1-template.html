@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/template_js@2.4.0/dist/index.aio.js"></script>
+    </head>
+    <body>
+        <input id="input" type="text" />
+        <div id="output"></div>
+
+        <script type="template" id="tmpl">
+            <div>1: <%=str%></div>
+            <div>2: <%=str.split("").join("-")%></div>
+            <div>3: <%=str.split("").reverse().join("")%></div>
+            <div>4: <%=str.split("").reverse().join("-")%></div>
+        </script>
+
+        <script>
+            const tmpl = template(document.querySelector("#tmpl").innerHTML);
+
+            document.querySelector("#input").addEventListener("input", (e) => {
+                const val = String(e.target.value);
+                document.querySelector("#output").innerHTML = tmpl({
+                    str: val,
+                });
+            });
+        </script>
+    </body>
+</html>

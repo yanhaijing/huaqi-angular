@@ -1,0 +1,23 @@
+section {
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  border: 2px dashed red;
+}
+
+header {
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.content {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid maroon;
+}
+
+footer {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid green;
+}

@@ -1,0 +1,14 @@
+.bg {
+  background: red;
+}
+.color {
+  color: green;
+}
+
+.container1 .bg {
+  background: green;
+}
+
+.container2 ::ng-deep .bg {
+  background: green;
+}

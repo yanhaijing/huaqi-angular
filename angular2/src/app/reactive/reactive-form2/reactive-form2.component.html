@@ -1,0 +1,35 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-item">
+    <input type="text" formControlName="name" />
+  </div>
+
+  <ng-container formArrayName="skills">
+    <div
+    class="form-item"
+      *ngFor="let item of skillsForm.controls; let i = index"
+      formGroupName="{{ i }}"
+    >
+      <select formControlName="type">
+        <option value="html">html</option>
+        <option value="css">css</option>
+        <option value="js">js</option>
+      </select>
+
+      <input type="text" formControlName="score" />
+
+      <button (click)="onDel(i)">del</button>
+
+      <div class="error" *ngIf="item.controls.type.errors">type miss</div>
+      <div class="error" *ngIf="item.controls.score.errors">score miss</div>
+    </div>
+  </ng-container>
+
+
+  <div class="error" *ngIf="skillsForm.errors?.minLength">min len 3</div>
+  <div class="error" *ngIf="skillsForm.errors?.score">score 小于 180</div>
+
+  <div class="form-item">
+    <button (click)="onAdd()">add</button>
+    <button type="submit">submit</button>
+  </div>
+</form>

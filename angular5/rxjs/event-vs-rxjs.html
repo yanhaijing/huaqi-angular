@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/rxjs@7.4.0/dist/bundles/rxjs.umd.js"></script>
+  </head>
+  <body>
+    <input id="input1" type="text" />
+    <input id="input2" type="text" />
+
+    <script>
+      let input1;
+      let input2;
+      document.querySelector("#input1").addEventListener("input", (e) => {
+        input1 = +e.target.value;
+        if (input1 && input2) {
+          console.log(input1 + input2);
+        }
+      });
+
+      document.querySelector("#input2").addEventListener("input", (e) => {
+        input2 = +e.target.value;
+        if (input1 && input2) {
+          console.log(input1 + input2);
+        }
+      });
+    </script>
+
+    <script>
+      const { fromEvent, combineLatest, map } = rxjs;
+
+      combineLatest([
+        fromEvent(document.querySelector("#input1"), "input"),
+        fromEvent(document.querySelector("#input2"), "input"),
+      ])
+        .pipe(
+          map(([input1, input2]) => +input1.target.value + +input2.target.value)
+        )
+        .subscribe((res) => {
+          console.log(res);
+        });
+    </script>
+  </body>
+</html>

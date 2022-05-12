@@ -1,0 +1,16 @@
+<p *ngIf="true">123</p>
+
+<ng-template [ngIf]="true"> 123 </ng-template>
+
+<ng-template #tpl>
+  <div>模板模板模板</div>
+</ng-template>
+
+<div>
+  else引用: <p *ngIf="false; else tpl"></p>
+</div>
+
+<div>
+  ngTemplateOutlet
+  <ng-template [ngTemplateOutlet]="tpl"></ng-template>
+</div>

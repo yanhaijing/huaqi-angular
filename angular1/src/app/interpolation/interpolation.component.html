@@ -1,0 +1,11 @@
+<div>类属性：{{ name }}</div>
+<div>类属性(get): {{ time }}</div>
+<div>
+  模板输入变量
+  <span *ngFor="let text of arr">{{ text }}</span>
+</div>
+<div>
+  模板引用变量
+  <input #customerInput value="123" />
+  {{ customerInput.value }}
+</div>

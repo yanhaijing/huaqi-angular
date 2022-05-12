@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>the5fire.com-backbone.js-Hello World</title>
+    </head>
+    <body>
+        <input id="input" type="text" />
+        <div id="output"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/backbone@1.4.0/backbone.js"></script>
+
+        <script>
+            (function ($) {
+                AppModel = Backbone.Model.extend({
+                    input: null,
+                });
+
+                AppView = Backbone.View.extend({
+                    el: $("body"),
+                    initialize: function () {
+                        this.model = new AppModel();
+                    },
+                    events: {
+                        //事件绑定，绑定Dom中id为check的元素
+                        "input #input": "onInput",
+                    },
+                    onInput(e) {
+                        const val = String(e.target.value);
+                        this.$el
+                            .find("#output")
+                            .text(val.split("").reverse().join(""));
+                    },
+                });
+                //实例化AppView
+                var appview = new AppView();
+            })(jQuery);
+        </script>
+    </body>
+</html>

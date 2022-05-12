@@ -1,0 +1,16 @@
+<select name="type" #type1 (change)="(onChange)">
+  <option [value]="1" defaultSelected>paragraph</option>
+  <option [value]="2">ul</option>
+  <option [value]="3">ol</option>
+</select>
+
+<ng-container [ngSwitch]="type1.value">
+  <p *ngSwitchCase="1">paragraph</p>
+  <ul *ngSwitchCase="2">
+    <li>ul</li>
+  </ul>
+  <ol *ngSwitchCase="3">
+    <li>ol</li>
+  </ol>
+  <div *ngSwitchDefault>defalut</div>
+</ng-container>

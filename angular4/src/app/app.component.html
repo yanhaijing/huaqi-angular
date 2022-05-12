@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/nest/hello">hello</a>
+    </li>
+    <li>
+      <a routerLink="/guard" [queryParams]="{ admin: 1 }">guard</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

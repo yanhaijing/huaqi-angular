@@ -1,0 +1,22 @@
+<app-hoc-card> 定义内容区域1 </app-hoc-card>
+
+<app-hoc-card> 定义内容区域2 </app-hoc-card>
+
+<app-hoc-card2>
+  <div class="content">定义内容区域1</div>
+  <footer>页脚1</footer>
+</app-hoc-card2>
+
+<app-hoc-card2>
+  <div class="content">定义内容区域2</div>
+  <footer>页脚2</footer>
+</app-hoc-card2>
+
+<app-hoc-card3 [content]="content" [footer]="footer"></app-hoc-card3>
+
+<ng-template #content>
+  <div class="content">定义内容区域2</div>
+</ng-template>
+<ng-template #footer>
+  <footer>页脚2</footer>
+</ng-template>
